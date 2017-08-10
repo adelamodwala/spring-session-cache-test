@@ -7,8 +7,6 @@ services:
       - "9095"
   lb:
     image: dockercloud/haproxy
-    environment:
-      - BALANCE=static-rr
     links:
       - web
     volumes:

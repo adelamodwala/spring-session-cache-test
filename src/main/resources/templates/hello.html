@@ -10,5 +10,20 @@
         <form th:action="@{/logout}" method="post">
             <input type="submit" value="Sign Out"/>
         </form>
+
+        <div th:if="${beans.containsKey('hazelcastInstance')}">
+            <hr/>
+            <div style="color:blue">
+                <p th:text="'Cluster member ' + ${@hazelcastInstance}"/>
+            </div>
+            <hr/>
+        </div>
+        <div th:unless="${beans.containsKey('hazelcastInstance')}">
+            <hr/>
+            <div style="color:red">
+                <p>No Hazelcast @Bean</p>
+            </div>
+            <hr/>
+        </div>
     </body>
 </html>
